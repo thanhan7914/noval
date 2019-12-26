@@ -11,7 +11,8 @@ class ViewPageRequest extends Request {
                 'required',
                 'string',
                 'min:10',
-                /([0-9]+)/
+                /([0-9]+)/,
+                'email'
             ]
         };
     }

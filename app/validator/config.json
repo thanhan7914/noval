@@ -1,0 +1,8 @@
+{
+    "all": [
+        {
+            "name": "email",
+            "validator": "app/validator/EmailValidator"
+        }
+    ]
+}
