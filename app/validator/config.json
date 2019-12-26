@@ -1,7 +1,7 @@
 {
     "all": [
         {
-            "name": "email",
+            "name": "email2",
             "validator": "app/validator/EmailValidator"
         }
     ]

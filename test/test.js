@@ -6,3 +6,5 @@ const PureRequest = require('../lib/request');
 console.log(DIContainer);
 let h = DIContainer.resolve('app/http/controllers/HomeController');
 console.log(h instanceof PureRequest);
+
+console.log(require('../lib/config')('app.port'))

@@ -1,7 +1,10 @@
-const express = require('express')
-const app = express()
-const port = 3000;
+const express = require('express');
+const app = express();
+const config = require('../lib/config');
+const port = process.env.PORT || config('app.port');
 const path = require('path');
+const favicon = require('serve-favicon')
+const session = require('express-session')
 const bodyParser = require('body-parser');
 
 module.exports = function() {
@@ -13,11 +16,26 @@ module.exports = function() {
         extended: true
     }));
 
-    app.use('/assets', express.static(__dirname + '/assets'));
+    app.use(session({
+        secret: config('app.secret_key'),
+        saveUninitialized: true,
+        resave: true,
+        cookie: {
+          maxAge: 259200000
+        }
+    }));
+
+    app.use('/assets', express.static(__dirname + '/../assets'));
+    app.use(favicon(__dirname + '/../assets/images/favicon.ico'))
 
     require('../lib/middleware')(app);
 
     app.use('/api', require('../routes/api'));
     app.use('/', require('../routes/web'));
+
+    app.use(function(req, res) {
+        res.render('errors/404');
+    });
+
     app.listen(port, () => console.log(`app listening on port ${port}!`))
 };

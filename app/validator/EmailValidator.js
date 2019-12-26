@@ -3,7 +3,16 @@ const Validator = require('../../lib/validate/validator');
 
 class EmailValidator {
     handle(value) {
-        return true;
+        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value))
+            return {
+                passed: true,
+                message: 'success'
+            };
+        
+        return {
+            passed: false,
+            message: 'invalid'
+        };
     }
 }
 
