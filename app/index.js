@@ -25,11 +25,11 @@ module.exports = function() {
         }
     }));
 
-    app.use('/assets', express.static(__dirname + '/../assets'));
-    app.use(favicon(__dirname + '/../assets/images/favicon.ico'))
-
+    require('../lib/hook')(app);
     require('../lib/middleware')(app);
 
+    app.use('/assets', express.static(__dirname + '/../assets'));
+    app.use(favicon(__dirname + '/../assets/images/favicon.ico'))
     app.use('/api', require('../routes/api'));
     app.use('/', require('../routes/web'));
 
