@@ -1,8 +1,8 @@
-const Request = require('../../../lib/base/request');
+const Request = require('../../../lib/base/Request');
 
 class ViewPageRequest extends Request {
     auth() {
-        return true;
+        return false;
     }
 
     rules() {

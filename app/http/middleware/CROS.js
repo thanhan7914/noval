@@ -1,4 +1,4 @@
-const Middleware = require('../../../lib/base/middleware');
+const Middleware = require('../../../lib/base/Middleware');
 
 class CROS extends Middleware {
     handle(req, res, next) {

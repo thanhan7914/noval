@@ -5,11 +5,8 @@ const middleware = require('../lib/middleware');
 middleware(route, 'web');
 
 route.get('/', function(req, res) {
-    // console.log(req instanceof Error);
-    
-    // if(req.errors) return res.json(req.errors);
-    // res.render('index');
-    res.end('ok');
+    if(req.errors) return res.json(req.errors);
+    res.render('index');
 });
 
 route.get('/show', {
