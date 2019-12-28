@@ -3,9 +3,10 @@ const middleware = require('../lib/middleware');
 
 middleware(router, 'web');
 
-router.get('/', function(req, res) {
+router.all('/', function(req, res) {
     // if(req.errors) return res.json(req.errors);
-    res.render('index');
+    // res.render('index');
+    res.json(req.all());
 });
 
 router.get('/show', {
