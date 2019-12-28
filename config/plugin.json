@@ -1,0 +1,6 @@
+{
+    "formidable": {
+        "encoding": "utf-8",
+        "multiples": true
+    }
+}
