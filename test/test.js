@@ -1,6 +1,6 @@
 const root = 'app/';
 
-const DIContainer = require('../lib/bootstrap');
+const DIContainer = require('../lib/index');
 const PureRequest = require('../lib/base/request');
 
 console.log(DIContainer);

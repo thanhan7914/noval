@@ -1,3 +1,3 @@
-require('../lib')(function(app) {
+require('../lib/bootstrap')(function(app) {
     //add external libraries
 });

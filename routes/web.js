@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 
 router.get('/show', {
     middleware: ['app/http/middleware/CROS'],
-    validator: ['app/http/requests/ViewPageRequest'],
+    validator: ['app/http/requests/CreatePageRequest'],
     uses: 'HomeController@show'
 });
 
