@@ -1,4 +1,6 @@
-class HomeController {
+const Controller = require('../../../lib/base/Controller');
+
+class HomeController extends Controller {
     static get __dependencies() {
         return {
             constructor: ['app/services/HomeService'],
@@ -7,6 +9,7 @@ class HomeController {
     }
 
     constructor(homeService) {
+        super();
         this.homeService = homeService;
     }
 
