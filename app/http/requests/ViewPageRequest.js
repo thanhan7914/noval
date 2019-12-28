@@ -2,7 +2,7 @@ const Request = require('../../../lib/base/Request');
 
 class ViewPageRequest extends Request {
     auth() {
-        return false;
+        return true;
     }
 
     rules() {

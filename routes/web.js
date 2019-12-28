@@ -4,7 +4,7 @@ const middleware = require('../lib/middleware');
 middleware(router, 'web');
 
 router.get('/', function(req, res) {
-    if(req.errors) return res.json(req.errors);
+    // if(req.errors) return res.json(req.errors);
     res.render('index');
 });
 
