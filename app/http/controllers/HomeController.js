@@ -14,6 +14,10 @@ class HomeController {
         let result = this.homeService.handle(req);
         res.json(result);
     }
+
+    show(req, res) {
+        res.end('ok');
+    }
 }
 
 module.exports = HomeController;

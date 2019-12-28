@@ -1,8 +1,10 @@
-const express = require('express');
-const route = require('../lib/route')(express);
+const router = require('../lib/base/Router')();
+const middleware = require('../lib/middleware');
 
-route.get('/', function(req, res) {
+middleware(router, 'api');
+
+router.get('/', function(req, res) {
     res.json({status: 200});
 });
 
-module.exports = route.Router;
+module.exports = router.ExpressRouter;

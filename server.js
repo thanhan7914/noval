@@ -1,2 +1,1 @@
-require('./lib/bootstrap');
-require('./app')();
+require('./app');

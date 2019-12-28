@@ -1,8 +1,15 @@
-const PureRequest = require('../lib/request');
-
 const root = 'app/';
 
 const DIContainer = require('../lib/bootstrap');
+const PureRequest = require('../lib/base/request');
+
 console.log(DIContainer);
 let h = DIContainer.resolve('app/http/controllers/HomeController');
-console.log(h.index);
+const HomeController = require('../app/http/controllers/HomeController');
+console.log(h instanceof HomeController);
+
+console.log(require('../lib/config')('app.port'))
+
+const { trans, getLocale } = require('../lib/lang');
+console.log(trans('message.error_404'));
+console.log(getLocale())

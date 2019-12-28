@@ -1,4 +1,4 @@
-const Request = require('../../../lib/request');
+const Request = require('../../../lib/base/Request');
 
 class ViewPageRequest extends Request {
     auth() {
@@ -11,7 +11,8 @@ class ViewPageRequest extends Request {
                 'required',
                 'string',
                 'min:10',
-                /([0-9]+)/
+                // /([0-9]+)/,
+                'email2'
             ]
         };
     }
