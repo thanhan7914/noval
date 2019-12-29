@@ -1,4 +1,4 @@
-const Controller = require('../../../lib/base/Controller');
+const Controller = require('../../../lib/base/controller');
 
 class HomeController extends Controller {
     static get __dependencies() {

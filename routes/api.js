@@ -1,4 +1,4 @@
-const router = require('../lib/base/Router')();
+const router = require('../lib/base/router')();
 const middleware = require('../lib/middleware');
 
 middleware(router, 'api');

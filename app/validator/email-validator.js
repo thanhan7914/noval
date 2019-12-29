@@ -1,5 +1,4 @@
-const Request = require('../../lib/base/Request');
-const Validator = require('../../lib/base/Validator');
+const Validator = require('../../lib/base/validator');
 
 class EmailValidator extends Validator {
     validate(value) {

@@ -1,4 +1,4 @@
-const router = require('../lib/base/Router')();
+const router = require('../lib/base/router')();
 const middleware = require('../lib/middleware');
 
 middleware(router, 'web');
@@ -10,7 +10,7 @@ router.all('/', function(req, res) {
 });
 
 router.get('/show', {
-    middleware: ['app/http/middleware/CROS'],
+    middleware: [],
     validator: ['app/http/requests/CreatePageRequest'],
     uses: 'HomeController@show'
 });
@@ -18,7 +18,7 @@ router.get('/show', {
 router.get('/test', 'HomeController@index');
 
 router.group('/aa', {
-    middleware: ['app/http/middleware/CROS'],
+    middleware: [],
     validator: ['app/http/requests/ViewPageRequest']
 }, function(router) {
     router.get('/', 'HomeController@show');
