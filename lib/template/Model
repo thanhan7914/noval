@@ -1,6 +1,0 @@
-const Model = require('${data.path}');
-
-class ${data.name} extends Model {
-}
-
-module.exports = ${data.name};

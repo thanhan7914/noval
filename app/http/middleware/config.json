@@ -1,9 +1,7 @@
 {
     "all": [
-        "CROS"
     ],
     "web": [
-        "Middleware"
     ],
     "api": []
 }
