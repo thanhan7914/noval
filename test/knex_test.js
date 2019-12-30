@@ -16,21 +16,25 @@ Car.initialize();
     let collections = await Car.where('name', 'Mercedes').getData();
     
     console.log(collections);
+    let car = await Car.find(1)
+    car.name = 'Audi';
+    await car.save();
+
     // console.log(collections[0].query.toSQL());
     // collections[0].name = 'con gax';
     // await collections[0].save();
     
     // console.log(collections);
     
-    let car = new Car({
-        name: 'Con ga',
-        price: 12
-    });
-    console.log(car);
-    await car.save();
-    await car.del();
+    // let car = new Car({
+    //     name: 'Con ga',
+    //     price: 12
+    // });
+    // console.log(car);
+    // await car.save();
+    // await car.del();
 
-    console.log(car);
+    // console.log(car);
     
 
     require('../lib/db').destroy();
