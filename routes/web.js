@@ -9,7 +9,15 @@ router.all('/', function(req, res) {
     res.json(require('lodash').merge({}, req.all(), {csrf: req.csrfToken()}));
 });
 
-router.post('/', function(req, res) {
+router.post('/', {
+    validator: {
+        q: [
+            'required',
+            'string',
+            'min:1'
+        ]
+    }
+}, function(req, res) {
     res.json(req.all());
 });
 
