@@ -3,10 +3,15 @@ const middleware = require('../lib/middleware');
 
 middleware(router, 'web');
 
+router.use(function(req, res, next) {
+    req.transport({haha: 'ok'});
+    next();
+});
+
 router.get('/', function(req, res) {
     // if(req.errors) return res.json(req.errors);
-    // res.render('index');
-    res.json(require('lodash').merge({}, req.all(), {csrf: req.csrfToken()}));
+    res.render('index');
+    // res.json(require('lodash').merge({}, req.all(), {csrf: req.csrfToken()}));
 });
 
 router.post('/', {
