@@ -14,6 +14,12 @@ router.get('/', function(req, res) {
     // res.json(require('lodash').merge({}, req.all(), {csrf: req.csrfToken()}));
 });
 
+router.get('/test-validator', {
+    validator: ['app/http/requests/ViewPageRequest']
+}, function(req, res) {
+    res.json(req.all());
+});
+
 router.post('/', {
     validator: {
         q: [

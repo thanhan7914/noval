@@ -16,6 +16,14 @@ class ViewPageRequest extends Request {
             ]
         };
     }
+
+    messages() {
+        return {
+            q: {
+                required: 'q is required'
+            }
+        }
+    }
 }
 
 module.exports = ViewPageRequest;
