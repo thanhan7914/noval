@@ -3,7 +3,7 @@ const middleware = require('../lib/middleware');
 
 middleware(router, 'web');
 
-router.all('/', function(req, res) {
+router.get('/', function(req, res) {
     // if(req.errors) return res.json(req.errors);
     // res.render('index');
     res.json(require('lodash').merge({}, req.all(), {csrf: req.csrfToken()}));
@@ -12,10 +12,11 @@ router.all('/', function(req, res) {
 router.post('/', {
     validator: {
         q: [
-            'required',
+            'nullable',
             'string',
-            'min:1'
-        ]
+            'min:2'
+        ],
+        t: 'required|string|min:1'
     }
 }, function(req, res) {
     res.json(req.all());
