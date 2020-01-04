@@ -16,6 +16,12 @@ class Address extends Model {
 
 Address.initialize();
 
+class Tag extends Model {
+    users() {
+        return this.belongsToMany(User, 'user_tag');
+    }
+}
+
 class User extends Model {
     static get fillable() {
         return ['user'];
@@ -26,7 +32,11 @@ class User extends Model {
     }
 
     addresses() {
-        return this.hasOne(Address);
+        return this.hasMany(Address);
+    }
+
+    tags() {
+        return this.belongsToMany(Tag, 'user_tag');
     }
 }
 
@@ -34,11 +44,25 @@ User.initialize();
 
 (async function() {
     let user = await User.find(2);
-
+    
     // console.log(user);
     let address = await Address.find(8);
     address.user().then(console.log);
-    // user.password = 'con ga';
+    let t = await Tag.find(2);
+    // await user.tags().attach([2, 3, 5]);
+    // await user.tags().detach([2, 3]);
+    // user.tags().attach([6]).then(console.log);
+    user.tags().detach(6);
+    // await user.tags().attach(t, {
+    //     detail: 'xxx'
+    // });
+    // user.password = 'conx';
+    // user.tags().collection.then(async (tags) => {
+    //     console.log(tags);
+    // });
+    // await user.tags().detachAll();
+    console.log(user.tags());
+    
     
     // // // let c = user.phones();
     // // console.log(user.addresses());
