@@ -4,7 +4,7 @@ class HomeController extends Controller {
     static get __dependencies() {
         return {
             constructor: ['app/services/HomeService'],
-            index: ['ViewPageRequest']
+            index: []
         }
     }
 
@@ -16,10 +16,6 @@ class HomeController extends Controller {
     index(req, res) {
         let result = this.homeService.handle(req);
         res.json(result);
-    }
-
-    show(req, res) {
-        res.end('ok');
     }
 }
 
