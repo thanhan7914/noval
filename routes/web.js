@@ -3,19 +3,31 @@ const middleware = require('../lib/middleware');
 
 middleware(router, 'web');
 
-router.all('/', function(req, res) {
+router.use(function(req, res, next) {
+    req.transport({haha: 'ok'});
+    next();
+});
+
+router.get('/', function(req, res) {
     // if(req.errors) return res.json(req.errors);
-    // res.render('index');
-    res.json(require('lodash').merge({}, req.all(), {csrf: req.csrfToken()}));
+    res.render('index');
+    // res.json(require('lodash').merge({}, req.all(), {csrf: req.csrfToken()}));
+});
+
+router.get('/test-validator', {
+    validator: ['app/http/requests/ViewPageRequest']
+}, function(req, res) {
+    res.json(req.all());
 });
 
 router.post('/', {
     validator: {
         q: [
-            'required',
+            'nullable',
             'string',
-            'min:1'
-        ]
+            'min:2'
+        ],
+        t: 'required|string|min:1'
     }
 }, function(req, res) {
     res.json(req.all());
